@@ -22,6 +22,14 @@ describe'methods_quiz'do
       has_teen?(9,190,20).must_equal(false)
     end
   end
-
+  
+  describe'not_string'do
+    it'should add not to the begining of a string if it is not there already'do
+      not_string('asdf').must_equal('notasdf')
+    end
+    it'should not add not to the begining of a string if it is there already'do
+      not_string('notmeh').must_equal('notmeh')
+    end
+  end
 
 end

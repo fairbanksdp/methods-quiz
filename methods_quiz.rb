@@ -38,13 +38,18 @@ def two_as_one?(a,b,c)
   a+b==c||a+c==b||b+c==a
 end
 # TODO - write pig_latinify
-def vowle_start(str)
+def word_split(str)
+  letterCount=str.index(' ')
+  if letterCount!=nil
+    word_
+
+def pig_latinify(str)
+  str=str.downcase.chop
+  
   if str.slice(0)=='a'||str.slice(0)=='e'||str.slice(0)=='i'||str.slice(0)=='o'||str.slice(0)=='u'||str.slice(0)=='y'
     return str+'way'
   end
   str.slice(1..str.length)+str.slice(0)+'ay'
-end
-def pig_latinify(str)
-  str=str.downcase
-  vowle_start(str)
 end 
+
+#tutnese 

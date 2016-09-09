@@ -49,22 +49,40 @@ describe'methods_quiz'do
       icy_hot?(0,100).must_equal(false)
       icy_hot?(100,0).must_equal(false)
     end
+  end
 
-    describe'closer_to'do
-      it'should return 0 if the 2 guses are the same distance from the target'do
-        closer_to(4,2,2).must_equal(0)
-        closer_to(4,6,2).must_equal(0)
-      end
-      it'should return the first guses if it is closer to the target'do
-        closer_to(4,3,2).must_equal(3)
-        closer_to(4,5,2).must_equal(5)
-      end
-      it'should return the second guses if it is closer to the target'do
-        closer_to(4,7,6).must_equal(6)
-        closer_to(4,0,2).must_equal(2)
-      end
+  describe'closer_to'do
+    it'should return 0 if the 2 guses are the same distance from the target'do
+      closer_to(4,2,2).must_equal(0)
+      closer_to(4,6,2).must_equal(0)
     end
+    it'should return the first guses if it is closer to the target'do
+      closer_to(4,3,2).must_equal(3)
+      closer_to(4,5,2).must_equal(5)
+    end
+    it'should return the second guses if it is closer to the target'do
+      closer_to(4,7,6).must_equal(6)
+      closer_to(4,0,2).must_equal(2)
+    end
+  end
 
+  describe'two_as_one?'do
+    it'should be true if a and b add to c'do
+      two_as_one?(2,2,4).must_equal(true)
+      two_as_one?(6,-2,4).must_equal(true)
+    end  
+    it'should be true if c and b add to a'do
+      two_as_one?(2,1,1).must_equal(true)
+      two_as_one?(6,-2,8).must_equal(true)
+    end  
+    it'should be true if a and c add to b'do
+      two_as_one?(-2,2,4).must_equal(true)
+      two_as_one?(5,8,3).must_equal(true)
+    end  
+    it'should be false if no pair adds to the last term'do
+      two_as_one?(2,2,400).must_equal(false)
+      two_as_one?(6,-2,-4).must_equal(false)
+    end  
   end
 
 end

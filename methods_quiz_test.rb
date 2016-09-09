@@ -32,4 +32,23 @@ describe'methods_quiz'do
     end
   end
 
+  describe'icy_hot?'do
+    it'should be true if one is icy and the other is hot'do
+      icy_hot?(-1,101).must_equal(true)
+      icy_hot?(101,-1).must_equal(true)
+    end
+    it'should be false if one is icy and the other is not hot'do
+      icy_hot?(-1,100).must_equal(false)
+      icy_hot?(100,-1).must_equal(false)
+    end
+    it'should be false if one is not icy and the other is hot'do
+      icy_hot?(0,101).must_equal(false)
+      icy_hot?(101,0).must_equal(false)
+    end
+    it'should be false if one is not icy and the other is not hot'do
+      icy_hot?(0,100).must_equal(false)
+      icy_hot?(100,0).must_equal(false)
+    end
+  end
+
 end

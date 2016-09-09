@@ -94,4 +94,5 @@ describe'methods_quiz'do
       pig_latinify('it').must_equal('itway')
       pig_latinify('iT').must_equal('itway')
     end
+  end
 end

@@ -15,7 +15,24 @@ def icy_hot?(temp1,temp2)
   (temp1<0&&temp2>100)||(temp1>100&&temp2<0)
 end
 # TODO - write closer_to
-
+def closer_to(target,guess1,guess2)
+  if (target-guess1)<0
+    d1=-(target-guess1)
+  else
+    d1=(target-guess1)
+  end 
+  if (target-guess2)<0
+    d2=-(target-guess2)
+  else
+    d2=(target-guess2)
+  end 
+  if d1==d2
+    return 0
+  elsif d1<d2
+    return guess1
+  end
+  guess2
+end
 # TODO - write two_as_one?
 
 # TODO - write pig_latinify

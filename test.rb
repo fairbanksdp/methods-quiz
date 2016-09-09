@@ -33,8 +33,8 @@ describe 'MethodsQuiz' do
 			not_string('word').must_equal('notword')
 		end
 
-		it 'adds to end if "not" at front' do
-			not_string('notword').must_equal('notwordnot')
+		it 'gives back the original string if a not is at front' do
+			not_string('notword').must_equal('notword')
 		end
 
 		it 'works with an empty string' do

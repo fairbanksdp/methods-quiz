@@ -49,6 +49,22 @@ describe'methods_quiz'do
       icy_hot?(0,100).must_equal(false)
       icy_hot?(100,0).must_equal(false)
     end
+
+    describe'closer_to'do
+      it'should return 0 if the 2 guses are the same distance from the target'do
+        closer_to(4,2,2).must_equal(0)
+        closer_to(4,6,2).must_equal(0)
+      end
+      it'should return the first guses if it is closer to the target'do
+        closer_to(4,3,2).must_equal(3)
+        closer_to(4,5,2).must_equal(5)
+      end
+      it'should return the second guses if it is closer to the target'do
+        closer_to(4,7,6).must_equal(6)
+        closer_to(4,0,2).must_equal(2)
+      end
+    end
+
   end
 
 end

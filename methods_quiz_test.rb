@@ -84,5 +84,14 @@ describe'methods_quiz'do
       two_as_one?(6,-2,-4).must_equal(false)
     end  
   end
-
+  
+  describe'pig_latinify'do
+    it'shoud move consonant to end of word and add ay'do
+      pig_latinify('hi').must_equal('ihay')
+      pig_latinify('hI').must_equal('ihay')
+    end
+    it'shoud add way to end of word if it starts with a vowel'do
+      pig_latinify('it').must_equal('itway')
+      pig_latinify('iT').must_equal('itway')
+    end
 end

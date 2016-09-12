@@ -1,6 +1,4 @@
-str.$stdin.get
-
-newString=Array.new	
+#str=$stdin.gets
 # TODO - write has_teen?
 def has_teen?(a,b,c)
   a>12&&a<20||b>12&&b<20||c>12&&c<20
@@ -40,17 +38,6 @@ def two_as_one?(a,b,c)
   a+b==c||a+c==b||b+c==a
 end
 # TODO - write pig_latinify
-def word_split(str,n)
-  space?=str.index(' ')
-  if space?!=nil
-    newString(n)=[str.slice(0..space?)]
-    str.replace str.slice(spac?+1..str.length)
-    word_split(str,n+1)
-  else
-    newString[n]=[str.slice(0..space?)]
-  end
-  newString
-end
 
 def vowel?(str)
   if str.slice(0)=='a'||str.slice(0)=='e'||str.slice(0)=='i'||str.slice(0)=='o'||str.slice(0)=='u'||str.slice(0)=='y'
@@ -60,15 +47,116 @@ def vowel?(str)
 end
 
 def pig_latinify(str)
+  n=0 
   str=str.downcase.chomp
-  word_split(str,0)
-  n=0
-  while newString.length - n > 0
-    #if newString[n]!=nil
-      str = newString[n]
-      finStr=finStr+vowel?(str) 
-    #end
+  if str.index(' ')!=nil
+    while str.index(' ')!=nil
+      if n==0
+        newStr = vowel?(str.slice(0..str.index(' ')-1))
+        str.replace str.slice(str.index(' ')+1..str.length)
+        n=1
+      else
+        newStr=newStr + ' ' + vowel?(str.slice(0..str.index(' ')-1))
+        str.replace str.slice(str.index(' ')+1..str.length)
+      end
+    end
+    return newStr= newStr + ' ' + vowel?(str.slice(0..str.length))
   end
+  vowel?(str)
 end 
-pig_latinify(str)
+#puts "#{pig_latinify(str)}"
+
 #tutnese 
+def splitWord(str)
+  string=Array.new
+  n=str.length
+  while str.length>0
+    string[n-str.length]=str.slice(0)
+    str=str.slice(1..str.length)
+  end
+  string
+end
+def tutnese(str)
+  str=str.downcase.chomp
+  ary=splitWord(str) 
+  n=0
+  endStr=nil
+  while ary[n]!=nil
+    if ary[n]=='a'||ary[n]=='e'||ary[n]=='i'||ary[n]=='o'||ary[n]=='u'
+      if ary[n+1]==ary[n]
+        endStr=endStr+'squat'
+        n=n+1
+      end
+        endStr=endStr+ary[n]
+    elsif ary[n+1]==ary[n]
+      endStr=endStr+'squa'
+      n=n+1
+    end
+    if ary[n]=='b'
+      endStr=endStr+'Bub'
+    end
+    if ary[n]=='c'
+      endStr=endStr+'Cash'
+    end
+    if ary[n]=='d'
+      endStr=endStr+'Dud'
+    end
+    if ary[n]=='f'
+      endStr=endStr+'Fuf'
+    end
+    if ary[n]=='g'
+      endStr=endStr+'Gug'
+    end
+    if ary[n]=='h'
+      endStr=endStr+'Hash'
+    end
+    if ary[n]=='j'
+      endStr=endStr+'Jay'
+    end
+    if ary[n]=='k'
+      endStr=endStr+'Kuck'
+    end
+    if ary[n]=='l'
+      endStr=endStr+'Lul'
+    end
+    if ary[n]=='m'
+      endStr=endStr+'Mum'
+    end
+    if ary[n]=='n'
+      endStr=endStr+'Nun'
+    end
+    if ary[n]=='p'
+      endStr=endStr+'Pub'
+    end
+    if ary[n]=='q'
+      endStr=endStr+'Quack'
+    end
+    if ary[n]=='r'
+      endStr=endStr+'Rug'
+    end
+    if ary[n]=='s'
+      endStr=endStr+'Sus'
+    end
+    if ary[n]=='t'
+      endStr=endStr+'Tut'
+    end
+    if ary[n]=='v'
+      endStr=endStr+'Vuv'
+    end
+    if ary[n]=='w'
+      endStr=endStr+'Wack'
+    end
+    if ary[n]=='x'
+      endStr=endStr+'Ex'
+    end
+    if ary[n]=='y'
+      endStr=endStr+'Yub'
+    end
+    if ary[n]=='z'
+      endStr=endStr+'Zub'
+    end
+    n=n+1
+  end
+
+end
+
